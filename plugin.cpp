@@ -12,6 +12,7 @@
 #include <QFile>
 #include <QMainWindow>
 
+using namespace Utils;
 using namespace TabbedEditor::Internal;
 
 TabbedEditorPlugin::TabbedEditorPlugin() :
@@ -67,7 +68,7 @@ void TabbedEditorPlugin::updateStyleToBaseColor()
     QString selectedTabBorderColorQss;
     QString shadowColorQss;
 
-    if(theme->widgetStyle() == Utils::Theme::StyleDefault) {
+    if (Utils::creatorTheme()->flag(Theme::FlatToolBars)) {
         baseColorQss = getQssStringFromColor(Utils::StyleHelper::baseColor().lighter(130));
         borderColorQss = getQssStringFromColor(Utils::StyleHelper::borderColor());
         highlightColorQss = getQssStringFromColor(Utils::StyleHelper::baseColor());
